@@ -1,8 +1,27 @@
-<w-html app="main">
-    <section>
-        <center>
-            <wdg:button $text="English" $icon="flag-en" />
-            <wdg:button $text="Français" $icon="flag-fr" />
-        </center>
-    </section>
-</w-html>
+<x-html app="main">
+    <wdg:modal id="modal" $padding="true">
+        <content>
+            <center>Toutes les mesures sont en mm.</center>
+            <wdg:flex>
+                <content>
+                    <wdg:text id="x" $label="X" $value="450" slot:value="onChange" $type="number" $size="4rem"/>
+                    <wdg:text id="y" $label="Y" $value="300" slot:value="onChange" $type="number" $size="4rem"/>
+                    <wdg:text id="z" $label="Z" $value="250" slot:value="onChange" $type="number" $size="4rem"/>
+                </content>
+            </wdg:flex>
+            <wdg:flex>
+                <content>
+                    <wdg:text id="e" $label="Épai." $value="20" slot:value="onChange" $type="number" $size="4rem"/>
+                    <wdg:text id="i" $label="Isol." $value="40" slot:value="onChange" $type="number" $size="4rem"/>
+                    <wdg:text id="p" $label="€/m²" $value="6" slot:value="onChange" $type="number" $size="4rem"/>
+                </content>
+            </wdg:flex>
+
+            <hr/>
+            <center>Dimensions des 12 planches</center>
+            <ul id="wood"></ul>
+
+            <center><big id="surf"></big> m² : <big id="price"></big> €</center>
+        </content>
+    </wdg:modal>
+</x-html>

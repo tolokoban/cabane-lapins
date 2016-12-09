@@ -6,12 +6,13 @@
         "type": "git",
         "url": "https://github.com/tolokoban/cabane-lapins.git"
     },
-    "homepage": "https://tolokoban.github.io/cabane-lapins",
+    "homepage": "https://github.com/tolokoban/cabane-lapins",
     "license": "GPL-3.0",
     "scripts": {
         "test": "node node_modules/karma/bin/karma start karma.conf.js",
         "test:dbg": "node --debug-brk node_modules/karma/bin/karma start karma.conf.js",
-        "debug": "node node_modules/toloframework/bin/tfw.js build debug test php watch",
+        "watch": "node node_modules/toloframework/bin/tfw.js build debug test php watch",
+        "debug": "node node_modules/toloframework/bin/tfw.js build debug test php",
         "clean": "node node_modules/toloframework/bin/tfw.js clean",
         "release": "node node_modules/toloframework/bin/tfw.js build version php clean"
     },
@@ -23,11 +24,13 @@
         "modules": [],
         "compile": {
             "type": "firefoxos",
-            "files": [ "\\.html$" ]
+            "files": [
+                "\\.html$"
+            ]
         },
         "output": "www"
     },
-    "version": "0.0.1",
+    "version": "0.0.6",
     "reservedModules": [],
     "dependencies": {
         "jasmine-core": "^2.4",
