@@ -72,28 +72,34 @@ var W = require('x-widget');
                               W('x', 'wdg.text', {
                   label: "X",
                   value: "450",
-                  type: "number"}),
+                  type: "number",
+                  size: "4rem"}),
                               W('y', 'wdg.text', {
                   label: "Y",
                   value: "300",
-                  type: "number"}),
+                  type: "number",
+                  size: "4rem"}),
                               W('z', 'wdg.text', {
                   label: "Z",
                   value: "250",
-                  type: "number"})]}),
+                  type: "number",
+                  size: "4rem"})]}),
                       W('wdg.flex1', 'wdg.flex', {"content": [
                               W('e', 'wdg.text', {
                   label: "Épai.",
                   value: "20",
-                  type: "number"}),
+                  type: "number",
+                  size: "4rem"}),
                               W('i', 'wdg.text', {
                   label: "Isol.",
                   value: "40",
-                  type: "number"}),
+                  type: "number",
+                  size: "4rem"}),
                               W('p', 'wdg.text', {
                   label: "€/m²",
                   value: "6",
-                  type: "number"})]}),
+                  type: "number",
+                  size: "4rem"})]}),
           W({
               elem: "hr"}),
           W({
@@ -121,7 +127,7 @@ var W = require('x-widget');
         W.bind('p',{"value":{"S":["onChange"]}});
     }
 );
-require("$",function(n,a,r){r.config={name:'"cabane-lapins"',description:'"Calculatrice pour découpe de planches de bois pour une cabane à lapins isolée."',author:'"tolokoban"',version:'"0.0.4"',major:"0",minor:"0",revision:"4",date:"2016-12-09T15:10:06.000Z",consts:{}};var o=null;r.lang=function(n){return void 0===n&&(window.localStorage&&(n=window.localStorage.getItem("Language")),n||(n=window.navigator.language,n||(n=window.navigator.browserLanguage,n||(n="fr"))),n=n.substr(0,2).toLowerCase()),o=n,window.localStorage&&window.localStorage.setItem("Language",n),n},r.intl=function(n,a){var o,e,t,i,l,u,g,s=n[r.lang()],c=a[0];for(g in n)break;if(!g)return c;if(!s&&(s=n[g],!s))return c;if(o=s[c],o||(s=n[g],o=s[c]),!o)return c;if(a.length>1){for(e="",l=0,t=0;t<o.length;t++)i=o.charAt(t),"$"===i?(e+=o.substring(l,t),t++,u=o.charCodeAt(t)-48,e+=u<0||u>=a.length?"$"+o.charAt(t):a[u],l=t+1):"\\"===i&&(e+=o.substring(l,t),t++,e+=o.charAt(t),l=t+1);e+=o.substr(l),o=e}return o}});
+require("$",function(n,a,r){r.config={name:'"cabane-lapins"',description:'"Calculatrice pour découpe de planches de bois pour une cabane à lapins isolée."',author:'"tolokoban"',version:'"0.0.6"',major:"0",minor:"0",revision:"6",date:"2016-12-09T15:13:33.000Z",consts:{}};var o=null;r.lang=function(n){return void 0===n&&(window.localStorage&&(n=window.localStorage.getItem("Language")),n||(n=window.navigator.language,n||(n=window.navigator.browserLanguage,n||(n="fr"))),n=n.substr(0,2).toLowerCase()),o=n,window.localStorage&&window.localStorage.setItem("Language",n),n},r.intl=function(n,a){var o,e,t,i,l,u,g,s=n[r.lang()],c=a[0];for(g in n)break;if(!g)return c;if(!s&&(s=n[g],!s))return c;if(o=s[c],o||(s=n[g],o=s[c]),!o)return c;if(a.length>1){for(e="",l=0,t=0;t<o.length;t++)i=o.charAt(t),"$"===i?(e+=o.substring(l,t),t++,u=o.charCodeAt(t)-48,e+=u<0||u>=a.length?"$"+o.charAt(t):a[u],l=t+1):"\\"===i&&(e+=o.substring(l,t),t++,e+=o.charAt(t),l=t+1);e+=o.substr(l),o=e}return o}});
 //# sourceMappingURL=$.js.map
 require("wdg.modal",function(t,e,n){function i(t){var e=this,n=a.div("theme-elevation-24","theme-color-bg-B3"),i=a.div([n]);a.elem(this,"div","wdg-modal",[i]);d.prop(this,"content")(function(t){a.clear(n),Array.isArray(t)?t.forEach(function(t){a.add(n,t)}):"undefined"!=typeof t&&null!==t&&a.add(n,t)}),d.propAddClass(this,"padding"),d.propAddClass(this,"scroll"),d.propAddClass(this,"wide"),d.propBoolean(this,"visible")(function(t){t?e.attach():e.detach()}),t=d.extend({visible:!1,content:[],padding:!1,scroll:!0},t,this)}var o=function(){function e(){return i(n,arguments)}var n={en:{}},i=t("$").intl;return e.all=n,e}(),a=t("dom"),d=t("tfw.data-binding"),r=t("wdg.flex"),s=t("wdg.button");i.prototype.refresh=function(){return d.fire(this,"content"),this},i.prototype.attach=function(){var t=this;this._timeoutDetach&&(window.clearTimeout(this._timeoutDetach),delete this._timeoutDetach),document.body.appendChild(this.element),d.set(this,"visible",!0),a.addClass(this,"fadeout"),window.setTimeout(function(){a.removeClass(t,"fadeout")})},i.prototype.detach=function(){var t=this;window.setTimeout(function(){a.addClass(t,"fadeout")}),this._timeoutDetach=window.setTimeout(function(){delete this._timeoutDetach,d.set(t,"visible",!1),a.detach(t.element)},250)},i.confirm=function(t,e,n){var o=s.No(),d=s.Yes("warning"),c=a.div([a.tag("hr"),new r({content:[o,d]})]);if("string"==typeof t&&"<html>"==t.substr(0,6)){var u=t.substr(6);t=a.div(),t.innerHTML=u}var h=new i({content:a.div([t,c]),padding:!0});return h.attach(),o.on(function(){h.detach(),"function"==typeof n&&n()}),d.on(function(){if("function"==typeof e){var t=e();"string"!=typeof t?h.detach():(o.visible=!1,d.waitOn(t))}else h.detach()}),h},i.alert=function(t,e){var n=s.Ok("simple"),o=a.div([a.tag("hr"),new r({content:[n]})]);if("string"==typeof t&&"<html>"==t.substr(0,6)){var d=t.substr(6);t=a.div(),t.innerHTML=d}var c=new i({content:a.div([t,o]),padding:!0});return c.attach(),n.on(function(){c.detach(),"function"==typeof e&&e()}),c},e.exports=i,e.exports._=o});
 //# sourceMappingURL=wdg.modal.js.map
